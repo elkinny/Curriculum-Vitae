@@ -25,7 +25,8 @@
 
 ```sh
 $ npm install
-$ gulp watch
+$ gulp sass
+index.html
 ```
 
 <h2 align="center">
