@@ -1,0 +1,91 @@
+$col-primary: #00c7ec;
+$corner-radius: 5px;
+
+.shiny_button {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Helvetica , sans-serif;
+  font-weight: 300;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: $col-primary;
+  border: 1px solid $col-primary;
+  border-radius: $corner-radius;
+  line-height: 3em;
+  padding-left: 5em;
+  padding-right: 5em;
+  box-shadow: 0 0 0 0 transparent;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    color: white;
+    box-shadow: 0 0 30px 0 transparentize($col-primary, 0.5);
+    background-color: $col-primary;
+    transition: all 0.2s ease-out;
+
+    &:before {
+      animation: shine 0.5s 0s linear;
+    }
+  }
+
+  &:active {
+    box-shadow: 0 0 0 0 transparent;
+    transition: box-shadow 0.2s ease-in;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: white;
+    box-shadow: 0 0 15px 3px white;
+    transform: skewX(-20deg);
+  }
+}
+
+@keyframes shine {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+.falling-link{
+  perspective: 900px;
+
+	a {
+		color: #5b616d;
+		text-shadow: none;
+		margin: 0 20px;
+		transition: .3s;
+		&::before {
+			color: #5b616d;
+			content: attr(data-hover);
+			position: absolute;
+			transition: .3s;
+			transform-origin: 50% 0;
+			transform-style: preserve-3d;
+
+		}
+		&:hover{
+			color: #fff;
+			&::before {
+				transform: translateY(22px) rotateX(-90deg);
+			}
+		}
+	}
+}
