@@ -1,0 +1,5 @@
+{
+  "./src/js/*.js": "./node_modules/.bin/eslint",
+  "./src/scss/**/*.scss": ["./node_modules/.bin/stylelint", "prettier-stylelint --write ./src/scss/**/*.scss"],
+  "**/*.js": ["./node_modules/.bin/prettier", "prettier --write '**/*.js'"]
+}

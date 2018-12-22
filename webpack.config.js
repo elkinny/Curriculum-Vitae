@@ -1,61 +1,93 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
   entry: ['./src/js/index.js', './src/scss/main.scss'],
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'js/bundle.js',
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'build'),
   },
-
-  stats: 'minimal',
+  resolve: {
+    modules: [path.resolve(__dirname, './src'), 'node_modules'],
+    extensions: ['.js', '.json'],
+  },
   watch: true,
+  devtool: 'source-map',
   devServer: {
-    stats: 'errors-only',
+    contentBase: path.join(__dirname, 'build'),
     compress: true,
+    port: 9000,
     open: true,
-    port: 3300,
   },
+  plugins: [
+    new CleanWebpackPlugin(['build']),
+    new HtmlWebpackPlugin({
+      title: 'Elkin Art',
+      template: 'src/index.html',
+      filename: 'index.html',
+      minify: { collapseWhitespace: true },
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
+  ],
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader'],
-        }),
+        enforce: 'pre',
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: 'eslint-loader',
       },
       {
-        test: /\.(jpe?g|png|gif)$/,
+        test: /\.html$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'html-loader',
+            options: { attrs: false },
+          },
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
           {
             loader: 'file-loader',
+            options: { name: 'img/[name].[ext]' },
+          },
+          {
+            loader: 'image-webpack-loader',
             options: {
-              name: '[path][name].[ext]',
-              context: path.resolve(__dirname, 'src'),
-              publicPath: '../',
-              useRelativePaths: true,
+              mozjpeg: {
+                progressive: true,
+                quality: 60,
+              },
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4,
+              },
+              gifsicle: {
+                interlaced: false,
+                optimizationLevel: 3,
+              },
+              webp: {
+                quality: 60,
+              },
             },
           },
         ],
       },
     ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'My App',
-      template: 'src/index.html',
-      filename: 'index.html',
-    }),
-    new ExtractTextPlugin({
-      filename: 'css/style.css',
-    }),
-  ],
-  resolve: {
-    alias: {
-      vue$: 'vue/dist/vue.js', // 'vue/dist/vue.common.js' for webpack 1
-    },
   },
 };
