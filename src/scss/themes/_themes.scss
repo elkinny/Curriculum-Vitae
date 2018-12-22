@@ -1,0 +1,27 @@
+.dark-theme {
+  background-color: $mainDarkColor;
+  color: $white;
+  font-family: $basicFont;
+
+  a {
+    color: $lightGray;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.white-theme {
+  background-color: $white;
+  color: $darkGray;
+  font-family: $basicFont;
+
+  a {
+    color: $white;
+
+    &:hover {
+      color: $lightGray;
+    }
+  }
+}

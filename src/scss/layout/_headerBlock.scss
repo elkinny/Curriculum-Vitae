@@ -1,0 +1,66 @@
+header {
+  height: 50px;
+  width: 100%;
+  color: $white;
+  margin-bottom: -50px;
+  position: absolute;
+  z-index: 1;
+  @include basicFont();
+
+  .wrapper {
+    .content {
+      @include flex(row);
+
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .header__ITP-logo {
+        min-width: 110px;
+        min-height: 110px;
+        background-image: url(../img/ITP-logo2.png);
+        @include background-contain(center);
+      }
+
+      .header__vertical-navigation {
+        margin-top: 0;
+        margin-left: 30%;
+
+        .vertical-navigation__list {
+          li {
+            margin-bottom: 10px;
+          }
+
+          li:not(:first-child) {
+            margin-top: 10px;
+          }
+        }
+      }
+
+      .list {
+        position: absolute;
+        right: 0;
+
+        li {
+          a {
+            transition: all .6s;
+          }
+
+          &:hover {
+            a {
+              text-shadow: 0 0 15px $flowerBlue;
+            }
+          }
+        }
+      }
+    }
+
+    .header__burger {
+      position: relative;
+
+      @media screen and (max-width: 600px) {
+        margin: 0;
+      }
+    }
+  }
+}

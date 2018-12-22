@@ -1,18 +1,15 @@
 <h1 align="center">
   <br>
   <a href="https://github.com/elkinny">
-    <img src="https://raw.githubusercontent.com/elkinny/Curriculum-Vitae/master/img/ekins_logo.png" alt="Elkin" width="200">    
+    <img src="https://raw.githubusercontent.com/elkinny/Curriculum-Vitae/master/ekins_logo.png" alt="Elkin" width="200">    
   </a>
   <br>
-    Curriculum Vitae
+    ITP Media Group test landing
   <br>
 </h1>
 
-<h4 align="center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-                 et architecto consequatur voluptate. Pariatur velit voluptas exercitationem
-                 ex, vel quasi. Porro nulla rem error totam animi doloremque iure, nisi eaque.</h4>
-
-
+<h4 align="center">Just a landing page, full of the cool stuff and animation. Inspired by <a href="https://www.behance.net/gallery/62290227/ITP-Media-Group" target="_blank">this</a></h4>
+  
 <br>
 <br>
 <p align="center">
@@ -25,10 +22,9 @@
 
 ```sh
 $ npm install
-$ gulp sass
-index.html
+$ npm run dev
 ```
 
 <h2 align="center">
-  <a href="https://elkinny.github.io/Curriculum-Vitae">Try it now</a>
+  <a href="https://elkinny.github.io/ITP-Media-Group/dist">Try it now</a>
 </h2>

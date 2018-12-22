@@ -1,12 +1,16 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var gulpStylelint = require('gulp-stylelint');
 
-gulp.task('sass', function () {
-  gulp.src('./sass/style.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css'));
-});
-
-gulp.task('sass:watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
-});
+gulp.task('lint:style', () =>
+  gulp.src('./src/scss/**/*.scss').pipe(
+    gulpStylelint({
+      failAfterError: false,
+      reporters: [
+        {
+          formatter: 'string',
+          console: true,
+        },
+      ],
+    }),
+  ),
+);

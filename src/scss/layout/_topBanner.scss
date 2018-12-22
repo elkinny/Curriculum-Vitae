@@ -1,0 +1,56 @@
+main {
+  .wrapper {
+    &:first-child {
+      background-image: url(../img/header_bg.jpg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+
+      .top-banner {
+        &__main {
+          @include flex-between(row);
+
+          .top-banner__main-text {
+            width: 410px;
+            padding-top: 150px;
+
+            @media screen and (max-width: 600px) {
+              width: 300px;
+            }
+
+            h1 {
+              @include headersFont();
+            }
+          }
+
+          .top-banner__blue-button {
+            @include main-button($darkGray);
+
+            align-self: flex-end;
+            margin: 30px 40px;
+            @media screen and (max-width: 600px) {
+              margin: 30px 0;
+            }
+
+            @media screen and (max-width: 300px) {
+              font-size: 12px;
+              padding: 18px 25px;
+            }
+          }
+
+          .top-banner__vertical-text {
+            display: block;
+            position: relative;
+            left: 20px;
+            align-self: center;
+            writing-mode: tb-rl;
+            opacity: .7;
+            @media screen and (max-width: 600px) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+$burgerButtonSize: 30px;
+
+.burger {
+  max-width: 200px;
+  margin: 0 40px;
+
+  .burger__button {
+    float: right;
+    width: $burgerButtonSize;
+    height: $burgerButtonSize;
+    position: relative;
+    margin: auto;
+    padding: 0;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:before,
+    .bar,
+    &:after {
+      display: block;
+      height: 15%;
+      background: $white;
+      content: '';
+      transition: all .2s cubic-bezier(.175, .885, .32, 1.275);
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      left: 0;
+      width: 100%; // for transition
+    }
+
+    &:before {
+      top: 0;
+      transform-origin: top left;
+    }
+
+    &:after {
+      bottom: 0;
+      transform-origin: bottom left;
+    }
+
+    &.active {
+      &:before,
+      &:after {
+        width: 141.42%; //Pythagore!
+      }
+
+      &:before {
+        transform: rotate(45deg) translateY(-50%);
+      }
+
+      &:after {
+        transform: rotate(-45deg) translateY(50%);
+      }
+
+      .bar {
+        background: transparent;
+      }
+    }
+  }
+
+  .burger__list {
+    opacity: 0;
+    margin-top: 60px;
+    text-align: right;
+    word-wrap: break-word;
+
+    li {
+      margin: 5px 0;
+    }
+
+    &.active {
+      animation: fadeInUp .5s ease-out forwards;
+      //z-index: 10;
+    }
+
+    &.in-active {
+      animation: fadeOutUp .5s ease-out forwards;
+      //z-index: -10;
+    }
+  }
+}

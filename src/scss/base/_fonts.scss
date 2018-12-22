@@ -1,0 +1,25 @@
+$headersFont: Helvetica;
+$basicFont: Helvetica;
+
+@mixin headersFont() {
+  font-family: Helvetica;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-stretch: extra-condensed;
+}
+
+@mixin basicFont() {
+  font-family: Helvetica;
+  line-height: 160%;
+  font-stretch: condensed;
+}
+
+@mixin longDash() {
+  content: '\2014';
+}
+
+.vertical-title {
+  writing-mode: tb-rl;
+  font-weight: bold;
+  white-space: nowrap;
+}

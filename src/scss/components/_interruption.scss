@@ -1,0 +1,36 @@
+.interruption {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  @include flex-center(row);
+
+  &__main-circle {
+    width: 0;
+    height: 0;
+    box-shadow: 0 0 0 2000px $mainDarkColor;
+    border-radius: 100%;
+    position: absolute;
+    margin: auto;
+    animation:
+      innerCircleExpansion $circleExpansionAnimationDuration linear
+      ($spinnerAnimationDuration) forwards;
+  }
+
+  &__small-circle {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    margin: auto;
+
+    circle {
+      fill: $mainDarkColor;
+      stroke-width: $strokeWidth;
+      stroke-dasharray: $circumference;
+      r: 0;
+      cx: 50%;
+      cy: 50%;
+      stroke-linecap: round;
+      animation: circleExpansion .5s linear $spinnerAnimationDuration;
+    }
+  }
+}

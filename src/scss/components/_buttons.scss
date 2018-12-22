@@ -1,0 +1,32 @@
+@mixin main-button($color) {
+  padding: 18px 50px;
+  border: none;
+  background-color: $color;
+  border-radius: 0;
+  color: #fff;
+  font-size: 15px;
+  font-family: inherit;
+  text-transform: uppercase;
+  transition: all .5s;
+  outline: none;
+  white-space: nowrap;
+
+  span:before {
+    @include longDash();
+
+    display: inline-block;
+    transform: scaleX(1.5);
+    margin-right: 15px;
+  }
+
+  &:hover {
+    transform: scale(1.1, 1.1);
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, .5);
+    background-color: lighten($color, 10%);
+  }
+
+  &:active {
+    transform: scale(1, 1);
+    box-shadow: 0 0 0 0 #000;
+  }
+}
