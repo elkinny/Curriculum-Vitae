@@ -26,5 +26,5 @@ $ npm run dev
 ```
 
 <h2 align="center">
-  <a href="https://elkinny.github.io/ITP-Media-Group/dist">Try it now</a>
+  <a href="https://elkinny.github.io/ITP-Media-Group/build">Try it now</a>
 </h2>
