@@ -1,5 +1,5 @@
-var gulp = require('gulp');
-var gulpStylelint = require('gulp-stylelint');
+const gulp = require('gulp');
+const gulpStylelint = require('gulp-stylelint');
 
 gulp.task('lint:style', () =>
   gulp.src('./src/scss/**/*.scss').pipe(

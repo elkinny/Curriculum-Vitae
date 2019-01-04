@@ -4,7 +4,7 @@ $basicFont: Helvetica;
 @mixin headersFont() {
   font-family: Helvetica;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 400;
   font-stretch: extra-condensed;
 }
 
@@ -20,6 +20,6 @@ $basicFont: Helvetica;
 
 .vertical-title {
   writing-mode: tb-rl;
-  font-weight: bold;
+  font-weight: 400;
   white-space: nowrap;
 }

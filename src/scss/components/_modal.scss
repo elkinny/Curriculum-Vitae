@@ -16,7 +16,7 @@
 
   .modal-content {
     margin: auto;
-    background-color: white;
+    background-color: #fff;
     min-width: 400px;
     min-height: 300px;
     position: relative;
@@ -33,7 +33,7 @@
       top: 0;
       font-family: Helvetica;
       font-size: 40px;
-      font-weight: bold;
+      font-weight: 400;
       color: $darkGray;
     }
   }

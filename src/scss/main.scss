@@ -1,28 +1,24 @@
-@import "./base/reset";
-@import "./base/sizes";
-@import "./base/colors";
-@import "./base/fonts";
-
-@import "./helpers/mixins";
-@import "./helpers/animations";
-
-@import "./themes/themes";
-
-@import "./components/spinner";
-@import "./components/interruption";
-@import "./components/burger";
-@import "./components/buttons";
-@import "./components/modal";
-
-@import "./layout/splashScreen";
-@import "./layout/topBanner";
-@import "./layout/infoBlock";
-@import "./layout/galleryBlock";
-@import "./layout/socialBlock";
-@import "./layout/preFooter";
-@import "./layout/headerBlock";
-@import "./layout/mainBlock";
-@import "./layout/footerBlock";
+@import './base/reset';
+@import './base/sizes';
+@import './base/colors';
+@import './base/fonts';
+@import './helpers/mixins';
+@import './helpers/animations';
+@import './themes/themes';
+@import './components/spinner';
+@import './components/interruption';
+@import './components/burger';
+@import './components/buttons';
+@import './components/modal';
+@import './layout/splashScreen';
+@import './layout/topBanner';
+@import './layout/infoBlock';
+@import './layout/galleryBlock';
+@import './layout/socialBlock';
+@import './layout/preFooter';
+@import './layout/headerBlock';
+@import './layout/mainBlock';
+@import './layout/footerBlock';
 
 body,
 html {
@@ -84,11 +80,11 @@ html {
         @include flex(column);
 
         li {
-          transition: all 0.6s;
+          transition: all .6s;
           display: inline-block;
 
           a {
-            transition: all 0.6s;
+            transition: all .6s;
           }
 
           &:hover {
